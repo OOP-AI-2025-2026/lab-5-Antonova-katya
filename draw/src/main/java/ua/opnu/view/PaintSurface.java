@@ -31,7 +31,7 @@ public class PaintSurface extends JComponent {
 
     // Перелік кольорів
     private final List<Color> colors = Arrays.asList
-            (Color.YELLOW, Color.MAGENTA, Color.CYAN, Color.RED, Color.BLUE, Color.PINK);
+            (Color.YELLOW, Color.MAGENTA, Color.CYAN, Color.RED, Color.BLUE, Color.PINK, Color.GREEN, Color.ORANGE);
 
     public PaintSurface() {
 
@@ -119,6 +119,12 @@ public class PaintSurface extends JComponent {
      * які ми додали раніше. Саме для цього і був створений список shapes.
      * Якби його не було, то постаті фігури зникали б при кожному перемальовуванні.
      */
+
+    public void clearShapes() {
+        shapes.clear(); // Просто очищуємо список
+        repaint();      // Та перемальовуємо компонент (він стане чистим)
+    }
+
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
 
@@ -138,7 +144,7 @@ public class PaintSurface extends JComponent {
             // Рисуємо контур фігури
             g2.draw(s.getShape());
             // Встановлюємо колір фону фігури
-            g2.setPaint(colors.get(shapes.indexOf(s) % 6));
+            g2.setPaint(colors.get(shapes.indexOf(s) % 8));
             // Зафарбовуємо фігуру
             g2.fill(s.getShape());
         });
