@@ -1,9 +1,8 @@
 package ua.opnu;
 
-public class GameShape {
-
+public class paper extends GameShape {
     @Override
     public String toString() {
-        return "Ігрова форма";
+        return "Папір";
     }
 }
